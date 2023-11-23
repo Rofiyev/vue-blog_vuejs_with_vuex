@@ -1,11 +1,10 @@
 <template>
-  <h1>Login</h1>
+  <LoginComponent/>
 </template>
 
 <script>
+import {LoginComponent} from '@/components'
 export default {
-  name: 'LoginView'
+components: { LoginComponent }
 }
 </script>
-
-<style scoped></style>

@@ -8,10 +8,10 @@
     </main>
   </div>
 </template>
+
 <script>
 import { NavbarComponent } from '@/components'
 export default {
   components: { NavbarComponent }
 }
 </script>
-<style></style>
