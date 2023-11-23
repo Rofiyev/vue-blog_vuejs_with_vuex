@@ -1,11 +1,9 @@
 <template>
-  <h1>Register</h1>
+  <h1>Login</h1>
 </template>
 
 <script>
-export default {
-  name: 'RegisterView'
-}
+export default {}
 </script>
 
 <style scoped></style>
