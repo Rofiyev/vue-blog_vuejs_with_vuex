@@ -1,9 +1,17 @@
 <template>
-  <RouterView />
+  <div class="container">
+    <header>
+      <NavbarComponent />
+    </header>
+    <main>
+      <router-view />
+    </main>
+  </div>
 </template>
-
-<script setup>
-import { RouterView } from 'vue-router'
+<script>
+import { NavbarComponent } from '@/components'
+export default {
+  components: { NavbarComponent }
+}
 </script>
-
-<style scoped></style>
+<style></style>
