@@ -16,11 +16,7 @@
         <InputUI placeholder="Email" type="email" />
         <InputUI placeholder="Password" type="password" />
 
-        <ButtonUI
-          class="mt-3"
-          type="submit"
-          @click="$store.commit('setLoading')"
-        >
+        <ButtonUI class="mt-3" type="submit" @click="$store.dispatch('registerBtn')">
           Sign in
         </ButtonUI>
       </div>
