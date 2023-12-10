@@ -1,11 +1,11 @@
 <template>
   <div class="w-50 m-auto mt-5">
-    <form>
+    <form @submit.prevent="submitHandler">
       <div class="d-flex justify-content-center">
         <img
           class="mb-4"
           src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg"
-          alt=""
+          alt="Logo"
           width="72"
           height="72"
         />
@@ -16,9 +16,7 @@
         <InputUI placeholder="Email" type="email" />
         <InputUI placeholder="Password" type="password" />
 
-        <ButtonUI class="mt-3" type="submit" @click="$store.dispatch('registerBtn')">
-          Sign in
-        </ButtonUI>
+        <ButtonUI class="mt-3" type="submit">Sign in</ButtonUI>
       </div>
       <p class="mt-5 mb-3 text-muted text-center">© 2023-2024</p>
     </form>
@@ -28,11 +26,26 @@
 <script>
 export default {
   data() {
-    return {}
+    return {
+      username: '',
+      email: '',
+      password: ''
+    }
   },
   computed: {
     isLoading() {
       return this.$store.state.auth.isLoading
+    }
+  },
+  methods: {
+    async submitHandler() {
+      const user = {
+        username: 'rof1yev',
+        email: 'rofiyevdilshod@gmail.com',
+        password: '07177700'
+      }
+      const res = await this.$store.dispatch('register', user)
+      console.log('Register Page', res)
     }
   }
 }
