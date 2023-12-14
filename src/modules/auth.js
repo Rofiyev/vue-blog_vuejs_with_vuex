@@ -49,8 +49,6 @@ export default {
     }
   },
   getters: {
-    [AuthUserTypes.user]: (state) => {
-      return state.user
-    }
+    [AuthUserTypes.user]: (state) => state.user
   }
 }
