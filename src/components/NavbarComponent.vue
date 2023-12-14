@@ -29,9 +29,6 @@
 import { mapState, mapGetters } from 'vuex'
 import { AuthUserTypes } from '@/modules/types'
 export default {
-  data() {
-    return {}
-  },
   computed: {
     ...mapState({
       // user: (state) => state.auth.user
@@ -39,7 +36,6 @@ export default {
     ...mapGetters({
       user: [AuthUserTypes.user]
     })
-  },
-  mounted() {}
+  }
 }
 </script>
