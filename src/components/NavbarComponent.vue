@@ -34,6 +34,7 @@ export default {
   computed: {
     ...mapState({
       // user: (state) => state.auth.user
+      //...
     }),
     ...mapGetters({
       user: [AuthUserTypes.user]
