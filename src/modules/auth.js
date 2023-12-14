@@ -40,7 +40,6 @@ export default {
         setItem('token', data.user.token)
         return { data, msg: 'Login Successfully!' }
       } catch (error) {
-        // let str = ''
         console.log(error.data)
         return { data: null, msg: 'Error' }
       } finally {
