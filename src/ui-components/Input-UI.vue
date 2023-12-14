@@ -1,5 +1,11 @@
 <template>
-  <input class="form-control" :type="type" :placeholder="placeholder" @input="updateInput" />
+  <input
+    class="form-control"
+    :type="type"
+    :placeholder="placeholder"
+    @input="updateInput"
+    required
+  />
 </template>
 
 <script>

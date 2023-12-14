@@ -12,11 +12,14 @@
       </div>
       <h1 class="h3 mb-3 font-weight-normal text-center">Register</h1>
       <div class="d-flex flex-column mx-auto gap-2" style="width: 70%">
-        <InputUI placeholder="Username" type="text" />
-        <InputUI placeholder="Email" type="email" />
-        <InputUI placeholder="Password" type="password" />
-
-        <ButtonUI class="mt-3" type="submit">Sign in</ButtonUI>
+        <InputUI placeholder="Username" type="text" v-model="username" />
+        <InputUI placeholder="Email" type="email" v-model="email" />
+        <InputUI placeholder="Password" type="password" v-model="password" />
+        <ButtonUI v-if="!isLoading" class="mt-3" type="submit">Sign in</ButtonUI>
+        <ButtonUI v-else class="mt-3" type="submit" disabled>
+          <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+          Submitting...
+        </ButtonUI>
       </div>
       <p class="mt-5 mb-3 text-muted text-center">© 2023-2024</p>
     </form>
@@ -24,6 +27,7 @@
 </template>
 
 <script>
+import { toast } from 'vue3-toastify'
 export default {
   data() {
     return {
@@ -40,12 +44,13 @@ export default {
   methods: {
     async submitHandler() {
       const user = {
-        username: 'rof1yev',
-        email: 'rofiyevdilshod@gmail.com',
-        password: '07177700'
+        username: this.username,
+        email: this.email,
+        password: this.password
       }
-      const res = await this.$store.dispatch('register', user)
-      console.log('Register Page', res)
+      const { data, msg } = await this.$store.dispatch('register', user)
+      data ? toast.success(msg) : toast.error(msg)
+      data && this.$router.push({ name: 'home' })
     }
   }
 }
