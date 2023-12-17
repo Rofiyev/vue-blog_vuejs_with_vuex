@@ -1,4 +1,4 @@
-import { setItem } from '../helpers/persistaneStorage'
+import { removeItem, setItem } from '../helpers/persistaneStorage'
 import AuthServices from '../service/auth'
 import { AuthUserTypes } from './types'
 
@@ -13,6 +13,13 @@ export default {
     },
     registerSuccess(state, payload) {
       state.user = payload
+    },
+    getUser(state, payload) {
+      state.user = payload
+    },
+    logout(state) {
+      removeItem('token')
+      state.user = null
     }
   },
 
@@ -45,6 +52,21 @@ export default {
       } finally {
         context.commit('setIsLoading')
       }
+    },
+    async getUser(context) {
+      context.commit('setIsLoading')
+      try {
+        const { data } = await AuthServices.getUser()
+        context.commit('getUser', data.user)
+        return data.user
+      } catch (error) {
+        console.log(error)
+      } finally {
+        context.commit('setIsLoading')
+      }
+    },
+    logoutUser(context) {
+      context.commit('logout')
     }
   },
   getters: {

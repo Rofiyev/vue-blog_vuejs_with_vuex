@@ -21,6 +21,9 @@
             <h5 class="mb-0">{{ user.username }}</h5>
             <span>{{ user.email }}</span>
           </div>
+          <button class="btn ms-2" @click="logout">
+            <img width="30" height="30" :src="exitIcon" alt="icon" />
+          </button>
         </div>
       </template>
     </nav>
@@ -30,7 +33,19 @@
 <script>
 import { mapState, mapGetters } from 'vuex'
 import { AuthUserTypes } from '@/modules/types'
+import exitIcon from '@/assets/exit.png'
+
 export default {
+  data() {
+    return {
+      exitIcon
+    }
+  },
+  methods: {
+    logout() {
+      this.$store.dispatch('logoutUser')
+    }
+  },
   computed: {
     ...mapState({
       // user: (state) => state.auth.user
