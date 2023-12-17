@@ -1,10 +1,17 @@
 <template>
-  <h1>Home</h1>
+  <h1>{{ data }}</h1>
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
-  name: 'HomeView'
+  name: 'HomeView',
+  computed: {
+    ...mapState({
+      data: ({ articles: { data } }) => data,
+      isLoading: ({ articles: { isLoading } }) => isLoading
+    })
+  }
 }
 </script>
 

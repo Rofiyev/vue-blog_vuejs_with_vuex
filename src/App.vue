@@ -11,10 +11,12 @@
 
 <script>
 import { NavbarComponent } from '@/components'
+
 export default {
   components: { NavbarComponent },
   mounted() {
     this.$store.dispatch('getUser')
+    this.$store.dispatch('getArticles')
   }
 }
 </script>
