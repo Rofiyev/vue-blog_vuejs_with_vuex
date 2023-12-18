@@ -1,3 +1,6 @@
 export { default as NavbarComponent } from './NavbarComponent.vue'
 export { default as RegisterComponent } from './RegisterComponent.vue'
 export { default as LoginComponent } from './LoginComponent.vue'
+export { default as CardComponent } from './CardComponent.vue'
+export { default as LoaderComponent } from './LoaderComponent.vue'
+export { default as ArticleDetail } from './ArticleDetail.vue'

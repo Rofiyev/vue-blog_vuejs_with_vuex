@@ -16,7 +16,6 @@ export default {
   components: { NavbarComponent },
   mounted() {
     this.$store.dispatch('getUser')
-    this.$store.dispatch('getArticles')
   }
 }
 </script>

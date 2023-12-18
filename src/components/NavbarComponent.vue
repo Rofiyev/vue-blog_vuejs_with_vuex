@@ -21,7 +21,7 @@
             <h5 class="mb-0">{{ user.username }}</h5>
             <span>{{ user.email }}</span>
           </div>
-          <button class="btn ms-2" @click="logout">
+          <button style="cursor: pointer" class="btn ms-2" @click="logout">
             <img width="30" height="30" :src="exitIcon" alt="icon" />
           </button>
         </div>
