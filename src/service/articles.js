@@ -12,6 +12,9 @@ const ArticleService = {
   },
   removeArticle(slug) {
     return axios.delete(`/articles/${slug}`)
+  },
+  updateArticle(slug, article) {
+    return axios.put(`/articles/${slug}`, { article })
   }
 }
 

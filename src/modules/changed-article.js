@@ -31,6 +31,17 @@ export default {
       } finally {
         context.commit('setIsLoading')
       }
+    },
+    async updateArticle(context, { slug, article }) {
+      try {
+        context.commit('setIsLoading')
+        const { data } = await ArticleService.updateArticle(slug, article)
+        return { data: data.article, success: true, msg: 'Updated Article Successfully!' }
+      } catch (error) {
+        return { data: [], success: false, msg: error.response.data }
+      } finally {
+        context.commit('setIsLoading')
+      }
     }
   }
 }

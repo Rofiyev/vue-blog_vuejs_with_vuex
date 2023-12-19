@@ -5,6 +5,7 @@
     :placeholder="placeholder"
     @input="updateInput"
     required
+    :value="modelValue"
   />
 </template>
 
@@ -13,7 +14,8 @@ export default {
   name: 'InputUI',
   props: {
     type: String,
-    placeholder: String
+    placeholder: String,
+    modelValue: [String, Number]
   },
   methods: {
     updateInput(e) {

@@ -27,7 +27,13 @@
               View
             </button>
             <template v-if="user == article.author.username">
-              <button type="button" class="btn btn-sm btn-outline-primary">Edit</button>
+              <button
+                type="button"
+                @click="pushEditPage(article.slug)"
+                class="btn btn-sm btn-outline-primary"
+              >
+                Edit
+              </button>
               <button
                 type="button"
                 @click="removeArticle(article.slug)"
@@ -79,6 +85,9 @@ export default {
       const { msg, success } = await this.$store.dispatch('deleteArticle', slug)
       success ? toast.success(msg) : toast.error(msg)
       success && this.$store.dispatch('getArticles')
+    },
+    pushEditPage(slug) {
+      this.$router.push(`/edit-article/${slug}`)
     }
   }
 }
