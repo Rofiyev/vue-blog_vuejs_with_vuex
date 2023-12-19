@@ -8,9 +8,9 @@ import Vue3Toastify from 'vue3-toastify'
 import 'vue3-toastify/dist/index.css'
 
 import { OhVueIcon, addIcons } from 'oh-vue-icons'
-import { PrHeartFill } from 'oh-vue-icons/icons'
+import { PrHeartFill, IoExitOutline } from 'oh-vue-icons/icons'
 
-addIcons(PrHeartFill)
+addIcons(PrHeartFill, IoExitOutline)
 
 const app = createApp(App)
 

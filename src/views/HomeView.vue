@@ -6,9 +6,19 @@
   >
     <LoaderComponent />
   </div>
-  <div v-else class="row">
-    <CardComponent v-for="article in data" :key="article.id" :article="article" />
-  </div>
+  <template v-else>
+    <span class="d-flex justify-content-end mb-3">
+      <RouterLink
+        :to="{ name: 'create-article' }"
+        class="text-decoration-none btn btn-outline-dark"
+      >
+        Create Article</RouterLink
+      >
+    </span>
+    <div class="row">
+      <CardComponent v-for="article in data" :key="article.id" :article="article" />
+    </div>
+  </template>
 </template>
 
 <script>

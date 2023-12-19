@@ -17,12 +17,12 @@
         <div class="d-flex gap-2">
           <img class="rounded-circle" height="50" width="50" :src="user.image" alt="user" />
 
-          <div>
+          <div style="border-right: 1px solid gray; padding-right: 1rem">
             <h5 class="mb-0">{{ user.username }}</h5>
             <span>{{ user.email }}</span>
           </div>
-          <button style="cursor: pointer" class="btn ms-2" @click="logout">
-            <img width="30" height="30" :src="exitIcon" alt="icon" />
+          <button style="cursor: pointer; border: none; background: none" @click="logout">
+            <v-icon scale="1.5" name="io-exit-outline"></v-icon>
           </button>
         </div>
       </template>
@@ -33,14 +33,8 @@
 <script>
 import { mapState, mapGetters } from 'vuex'
 import { AuthUserTypes } from '@/modules/types'
-import exitIcon from '@/assets/exit.png'
 
 export default {
-  data() {
-    return {
-      exitIcon
-    }
-  },
   methods: {
     logout() {
       this.$store.dispatch('logoutUser')

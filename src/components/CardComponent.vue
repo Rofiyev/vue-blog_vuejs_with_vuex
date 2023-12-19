@@ -1,5 +1,5 @@
 <template>
-  <div class="col-md-5 col-xl-4 col-12 mb-4" style="min-height: 500px !important">
+  <div class="col-md-6 col-xl-4 col-12 mb-4" style="min-height: 500px !important">
     <div class="card mb-4 box-shadow" style="height: 100%">
       <img
         class="card-img-top"
@@ -26,7 +26,16 @@
             >
               View
             </button>
-            <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+            <template v-if="user == article.author.username">
+              <button type="button" class="btn btn-sm btn-outline-primary">Edit</button>
+              <button
+                type="button"
+                @click="removeArticle(article.slug)"
+                class="btn btn-sm btn-outline-danger"
+              >
+                Delete
+              </button>
+            </template>
           </div>
 
           <small class="text-muted"
@@ -38,6 +47,9 @@
   </div>
 </template>
 <script>
+import { toast } from 'vue3-toastify'
+import { mapState } from 'vuex'
+
 export default {
   data() {
     return { wpm: 225 }
@@ -48,6 +60,11 @@ export default {
       required: true
     }
   },
+  computed: {
+    ...mapState({
+      user: ({ auth: { user } }) => user.username
+    })
+  },
   methods: {
     calcReadingArticles(article_title, article_description, article_body) {
       let title = article_title.trim().split(/\s+/).length
@@ -57,6 +74,11 @@ export default {
     },
     pushDetailPage(slug) {
       this.$router.push(`/article/${slug}`)
+    },
+    async removeArticle(slug) {
+      const { msg, success } = await this.$store.dispatch('deleteArticle', slug)
+      success ? toast.success(msg) : toast.error(msg)
+      success && this.$store.dispatch('getArticles')
     }
   }
 }
