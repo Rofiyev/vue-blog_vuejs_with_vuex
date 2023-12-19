@@ -7,8 +7,14 @@ import uiComponents from './ui-components'
 import Vue3Toastify from 'vue3-toastify'
 import 'vue3-toastify/dist/index.css'
 
+import { OhVueIcon, addIcons } from 'oh-vue-icons'
+import { PrHeartFill } from 'oh-vue-icons/icons'
+
+addIcons(PrHeartFill)
+
 const app = createApp(App)
 
+app.component('v-icon', OhVueIcon)
 uiComponents.map((component) => app.component(component.name, component))
 
 app.use(Vue3Toastify, {

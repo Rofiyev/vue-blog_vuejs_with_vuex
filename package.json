@@ -16,6 +16,7 @@
     "bootstrap-icons": "^1.11.2",
     "bootstrap-vue": "^2.23.1",
     "buefy": "^0.9.25",
+    "oh-vue-icons": "^1.0.0-rc3",
     "primevue": "^3.43.0",
     "vue": "^3.3.11",
     "vue-nl2br": "^1.1.1",
