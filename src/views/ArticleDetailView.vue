@@ -1,15 +1,15 @@
 <template>
   <main role="main" class="container">
-    <ArticleDetail />
+    <ArticleDetailComponent />
   </main>
 </template>
 
 <script>
-import { ArticleDetail } from '@/components'
+import { ArticleDetailComponent } from '@/components'
 
 export default {
   name: 'ArticleDetailView',
-  components: { ArticleDetail },
+  components: { ArticleDetailComponent },
   mounted() {
     this.$store.dispatch('getArticleDetail', this.$route.params.slug)
   }
