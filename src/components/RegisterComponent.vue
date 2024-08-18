@@ -49,8 +49,10 @@ export default {
         password: this.password
       }
       const { data, msg } = await this.$store.dispatch('register', user)
-      data ? toast.success(msg) : toast.error(msg)
-      data && this.$router.push({ name: 'home' })
+      if (data) {
+        toast.success(msg)
+        this.$router.push({ name: 'home' })
+      } else toast.error(msg)
     }
   }
 }

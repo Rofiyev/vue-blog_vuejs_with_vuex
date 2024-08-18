@@ -33,9 +33,6 @@ export default {
       data: ({ articles: { data } }) => data,
       isLoading: ({ articles: { isLoading } }) => isLoading
     })
-  },
-  mounted() {
-    this.$store.dispatch('getArticles')
   }
 }
 </script>
